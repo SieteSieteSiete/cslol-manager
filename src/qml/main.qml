@@ -9,7 +9,7 @@ import QtQuick.Controls.Material 2.15
 
 ApplicationWindow {
     id: window
-    visible: true
+    visible: !settings.startMinimized
     width: 640
     height: 640
     minimumHeight: 640
@@ -403,9 +403,6 @@ ApplicationWindow {
             if (window.visibility !== ApplicationWindow.Maximized) {
                 window.visibility = ApplicationWindow.Maximized;
             }
-        }
-        if (settings.startMinimized) {
-            window.hide()
         }
         firstTick = true;
         cslolTools.init()

@@ -138,12 +138,26 @@ Dialog {
                     text: qsTr("Enable systray icon")
                     checked: false
                     Layout.fillWidth: true
+
+                    onCheckedChanged: {
+                        if (checked) {
+                            startMinimizedCheck.visible = true;
+                            startMinimizedCheck.enabled = true;
+                        } else {
+                            startMinimizedCheck.visible = false;
+                            startMinimizedCheck.enabled = false;
+                            startMinimizedCheck.checked = false; // Uncheck if previously checked
+                        }
+                    }
                 }
-		Switch {
+
+                Switch {
                     id: startMinimizedCheck
                     text: qsTr("Start program with window hidden")
                     checked: false
                     Layout.fillWidth: true
+                    visible: false // Initially hidden
+                    enabled: false // Initially disabled
                 }
                 Switch {
                     id: enableAutoRunCheck
