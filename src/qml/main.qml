@@ -27,6 +27,7 @@ ApplicationWindow {
         property alias enableUpdates: cslolDialogSettings.enableUpdates
         property alias enableAutoRun: cslolDialogSettings.enableAutoRun
         property alias enableSystray: cslolDialogSettings.enableSystray
+	property alias startMinimized: cslolDialogSettings.startMinimized
         property alias themeDarkMode: cslolDialogSettings.themeDarkMode
         property alias themePrimaryColor: cslolDialogSettings.themePrimaryColor
         property alias themeAccentColor: cslolDialogSettings.themeAccentColor
