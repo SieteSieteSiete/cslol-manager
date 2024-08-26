@@ -9,7 +9,6 @@ import QtQuick.Controls.Material 2.15
 
 ApplicationWindow {
     id: window
-    visible: !settings.startMinimized
     width: 640
     height: 640
     minimumHeight: 640
@@ -399,6 +398,7 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
+        visible = !settings.startMinimized; // Set visibility based on settings only on startup
         if (settings.windowMaximised) {
             if (window.visibility !== ApplicationWindow.Maximized) {
                 window.visibility = ApplicationWindow.Maximized;
