@@ -1,4 +1,5 @@
 import QtQuick 2.15
+import QtQuick.Window 2.15
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.15
 import Qt.labs.settings 1.0
@@ -129,29 +130,29 @@ ApplicationWindow {
         }
     }
 
-    // CSLOLSystemTrayIcon {
-    //     id: systemTrayIcon
-    // }
+    CSLOLSystemTrayIcon {
+        id: systemTrayIcon
+    }
 
-    // Connections {
-    //     target: systemTrayManager
-    //     function onWindowVisibilityChanged(visible) {
-    //         if (visible) {
-    //             window.show()
-    //             window.raise()
-    //             window.requestActivate()
-    //         } else {
-    //             window.hide()
-    //         }
-    //     }
-    //     function onProfileStateChanged(running) {
-    //         if (running) {
-    //             cslolToolBar.saveProfileAndRun(true)
-    //         } else {
-    //             cslolToolBar.stopProfile()
-    //         }
-    //     }
-    // }
+    Connections {
+        target: systemTrayManager
+        function onWindowVisibilityChanged(visible) {
+            if (visible) {
+                window.show()
+                window.raise()
+                window.requestActivate()
+            } else {
+                window.hide()
+            }
+        }
+        function onProfileStateChanged(running) {
+            if (running) {
+                cslolToolBar.saveProfileAndRun(true)
+            } else {
+                cslolToolBar.stopProfile()
+            }
+        }
+    }
 
     CSLOLDialogSettings {
         id: cslolDialogSettings
