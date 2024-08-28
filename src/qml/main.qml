@@ -123,8 +123,8 @@ ApplicationWindow {
         onOpenLogs: Qt.openUrlExternally(CSLOLUtils.toFile("./log.txt"))
     }
 
-    onClosing: {
-        if (cslolTrayIcon.available && settings.enableSystray) {
+    onClosing: function(close) {
+        if (systemTrayIcon.available && settings.enableSystray) {
             close.accepted = false
             window.hide()
         }
