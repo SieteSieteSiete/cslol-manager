@@ -129,44 +129,26 @@ ApplicationWindow {
         }
     }
 
-    // SystemTrayIcon {
-    //     id: cslolTrayIcon
-    //     visible: settings.enableSystray
-    //     iconSource: "qrc:/icon.png"
-    //     tooltip: "cslol-manager"
-    //     menu: Menu {
-    //         MenuItem {
-    //             text: !window.visible ? qsTr("Show") : qsTr("Minimize")
-    //             onTriggered: window.visible ? window.hide() : window.show()
-    //         }
-    //         MenuItem {
-    //             text: window.patcherRunning ? qsTr("Stop") : qsTr("Run")
-    //             onTriggered: {
-    //                 if (window.patcherRunning) {
-    //                     cslolToolBar.stopProfile()
-    //                 } else if (!window.isBussy) {
-    //                     cslolToolBar.saveProfileAndRun(true)
-    //                 }
-    //             }
-    //         }
-    //         MenuItem {
-    //             text: qsTr("Logs")
-    //             onTriggered: Qt.openUrlExternally(CSLOLUtils.toFile("./log.txt"))
-    //         }
-    //         MenuItem {
-    //             text: qsTr("Updates")
-    //             onTriggered: Qt.openUrlExternally(cslolDialogUpdate.update_url)
-    //         }
-    //         MenuItem {
-    //             text: qsTr("Exit")
-    //             onTriggered: Qt.quit()
+    // CSLOLSystemTrayIcon {
+    //     id: systemTrayIcon
+    // }
+
+    // Connections {
+    //     target: systemTrayManager
+    //     function onWindowVisibilityChanged(visible) {
+    //         if (visible) {
+    //             window.show()
+    //             window.raise()
+    //             window.requestActivate()
+    //         } else {
+    //             window.hide()
     //         }
     //     }
-    //     onActivated: {
-    //         if (reason === SystemTrayIcon.Context) {
-    //             menu.open()
-    //         } else if(reason === SystemTrayIcon.DoubleClick) {
-    //             window.show()
+    //     function onProfileStateChanged(running) {
+    //         if (running) {
+    //             cslolToolBar.saveProfileAndRun(true)
+    //         } else {
+    //             cslolToolBar.stopProfile()
     //         }
     //     }
     // }
