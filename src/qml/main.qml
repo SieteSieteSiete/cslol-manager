@@ -398,7 +398,7 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        visible: !settings.startMinimized; // Set visibility based on settings only on startup
+        visible = !settings.startMinimized; // Set visibility based on settings only on startup
         if (settings.windowMaximised) {
             if (window.visibility !== ApplicationWindow.Maximized) {
                 window.visibility = ApplicationWindow.Maximized;
