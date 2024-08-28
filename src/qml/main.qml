@@ -129,47 +129,47 @@ ApplicationWindow {
         }
     }
 
-    SystemTrayIcon {
-        id: cslolTrayIcon
-        visible: settings.enableSystray
-        iconSource: "qrc:/icon.png"
-        tooltip: "cslol-manager"
-        menu: Menu {
-            MenuItem {
-                text: !window.visible ? qsTr("Show") : qsTr("Minimize")
-                onTriggered: window.visible ? window.hide() : window.show()
-            }
-            MenuItem {
-                text: window.patcherRunning ? qsTr("Stop") : qsTr("Run")
-                onTriggered: {
-                    if (window.patcherRunning) {
-                        cslolToolBar.stopProfile()
-                    } else if (!window.isBussy) {
-                        cslolToolBar.saveProfileAndRun(true)
-                    }
-                }
-            }
-            MenuItem {
-                text: qsTr("Logs")
-                onTriggered: Qt.openUrlExternally(CSLOLUtils.toFile("./log.txt"))
-            }
-            MenuItem {
-                text: qsTr("Updates")
-                onTriggered: Qt.openUrlExternally(cslolDialogUpdate.update_url)
-            }
-            MenuItem {
-                text: qsTr("Exit")
-                onTriggered: Qt.quit()
-            }
-        }
-        onActivated: {
-            if (reason === SystemTrayIcon.Context) {
-                menu.open()
-            } else if(reason === SystemTrayIcon.DoubleClick) {
-                window.show()
-            }
-        }
-    }
+    // SystemTrayIcon {
+    //     id: cslolTrayIcon
+    //     visible: settings.enableSystray
+    //     iconSource: "qrc:/icon.png"
+    //     tooltip: "cslol-manager"
+    //     menu: Menu {
+    //         MenuItem {
+    //             text: !window.visible ? qsTr("Show") : qsTr("Minimize")
+    //             onTriggered: window.visible ? window.hide() : window.show()
+    //         }
+    //         MenuItem {
+    //             text: window.patcherRunning ? qsTr("Stop") : qsTr("Run")
+    //             onTriggered: {
+    //                 if (window.patcherRunning) {
+    //                     cslolToolBar.stopProfile()
+    //                 } else if (!window.isBussy) {
+    //                     cslolToolBar.saveProfileAndRun(true)
+    //                 }
+    //             }
+    //         }
+    //         MenuItem {
+    //             text: qsTr("Logs")
+    //             onTriggered: Qt.openUrlExternally(CSLOLUtils.toFile("./log.txt"))
+    //         }
+    //         MenuItem {
+    //             text: qsTr("Updates")
+    //             onTriggered: Qt.openUrlExternally(cslolDialogUpdate.update_url)
+    //         }
+    //         MenuItem {
+    //             text: qsTr("Exit")
+    //             onTriggered: Qt.quit()
+    //         }
+    //     }
+    //     onActivated: {
+    //         if (reason === SystemTrayIcon.Context) {
+    //             menu.open()
+    //         } else if(reason === SystemTrayIcon.DoubleClick) {
+    //             window.show()
+    //         }
+    //     }
+    // }
 
     CSLOLDialogSettings {
         id: cslolDialogSettings
@@ -398,7 +398,7 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        visible = !settings.startMinimized; // Set visibility based on settings only on startup
+        visible: !settings.startMinimized; // Set visibility based on settings only on startup
         if (settings.windowMaximised) {
             if (window.visibility !== ApplicationWindow.Maximized) {
                 window.visibility = ApplicationWindow.Maximized;
