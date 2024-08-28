@@ -1,5 +1,8 @@
 #include "SystemTrayManager.h"
 #include <QQmlContext>
+#include <QDesktopServices>
+#include <QUrl>
+#include <QCoreApplication>
 #include <QSystemTrayIcon>
 
 SystemTrayManager::SystemTrayManager(QObject *parent)
