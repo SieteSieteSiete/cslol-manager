@@ -705,13 +705,3 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/c,qt,vim,qml,c++,linux,macos,cmake,clion,windows,kdevelop4,qtcreator,visualstudio,visualstudiocode
-
-oldSystemTrayManager.h
-
-oldMain.cpp
-
-CSLOLSystemTrayIcon.qml
-
-SystemTrayManager.cpp
-
-SystemTrayManager.h
