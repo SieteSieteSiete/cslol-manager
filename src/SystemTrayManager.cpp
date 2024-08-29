@@ -4,6 +4,7 @@
 #include <QUrl>
 #include <QCoreApplication>
 #include <QSystemTrayIcon>
+#include "CSLOLUtils.h"
 
 SystemTrayManager::SystemTrayManager(QObject *parent)
     : QObject(parent), m_engine(nullptr), m_available(false)
@@ -45,7 +46,7 @@ void SystemTrayManager::stopProfile()
 
 void SystemTrayManager::openLogs()
 {
-    // Implement log opening logic here
+    QDesktopServices::openUrl(QUrl::fromLocalFile(CSLOLUtils::toFile("./log.txt")));
 }
 
 void SystemTrayManager::quit()
