@@ -16,7 +16,6 @@ public:
     bool isAvailable() const;
     QString updateUrl() const { return m_updateUrl; }
     void setUpdateUrl(const QString &url);
-    void openUpdateUrl();
 
 public slots:
     void showWindow();
@@ -24,7 +23,7 @@ public slots:
     void runProfile();
     void stopProfile();
     void openLogs();
-    void openUpdates();
+    void openUpdateUrl();
     void quit();
 
 signals:
