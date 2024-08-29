@@ -10,8 +10,9 @@ class CSLOLUtils : public QObject {
     Q_OBJECT
 public:
     explicit CSLOLUtils(QObject* engine = nullptr);
-    Q_INVOKABLE static QString fromFile(QString file);
-    Q_INVOKABLE static QString toFile(QString file);
+    Q_INVOKABLE QString fromFile(QString file);
+    Q_INVOKABLE QString toFile(QString file);
+    Q_INVOKABLE QString getLogFilePath() const;
     Q_INVOKABLE QString checkGamePath(QString path);
     Q_INVOKABLE QString detectGamePath();
 
