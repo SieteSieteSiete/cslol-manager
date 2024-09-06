@@ -8,6 +8,7 @@ SystemTrayIcon {
     tooltip: "cslol-manager"
 
     property bool windowVisible: true
+    property bool patcherRunning: false
 
     function updateWindowVisibility(isVisible) {
         windowVisible = isVisible
@@ -33,9 +34,9 @@ SystemTrayIcon {
         }
         MenuItem {
             id: runStopMenuItem
-            text: systemTrayManager.patcherRunning ? qsTr("Stop") : qsTr("Run")
+            text: root.patcherRunning ? qsTr("Stop") : qsTr("Run")
             onTriggered: {
-                if (systemTrayManager.patcherRunning) {
+                if (root.patcherRunning) {
                     systemTrayManager.stopProfile()
                 } else {
                     systemTrayManager.runProfile()
