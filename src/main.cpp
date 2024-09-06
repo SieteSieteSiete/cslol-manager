@@ -9,6 +9,7 @@
 #include <QSettings>
 
 #include "CSLOLTools.h"
+#include "CSLOLToolsImpl.h"
 #include "CSLOLUtils.h"
 #include "CSLOLVersion.h"
 #include "SystemTrayManager.h"

@@ -14,6 +14,11 @@ SystemTrayIcon {
         showHideMenuItem.text = windowVisible ? qsTr("Hide") : qsTr("Show")
     }
 
+    function updatePatcherRunning(isRunning) {
+        patcherRunning = isRunning
+        runStopMenuItem.text = patcherRunning ? qsTr("Stop") : qsTr("Run")
+    }
+
     menu: Menu {
         MenuItem {
             id: showHideMenuItem
