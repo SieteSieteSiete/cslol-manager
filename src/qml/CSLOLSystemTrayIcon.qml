@@ -29,7 +29,6 @@ SystemTrayIcon {
         MenuItem {
             id: runStopMenuItem
             text: systemTrayManager.patcherRunning ? qsTr("Stop") : qsTr("Run")
-            enabled: !window.isBussy || systemTrayManager.patcherRunning
             onTriggered: {
                 if (systemTrayManager.patcherRunning) {
                     systemTrayManager.stopProfile()
