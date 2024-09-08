@@ -9,7 +9,7 @@ import QtQuick.Controls.Material 2.15
 
 ApplicationWindow {
     id: window
-    visible: true
+    visible: false
     width: 640
     height: 640
     minimumHeight: 640
@@ -403,8 +403,8 @@ ApplicationWindow {
             window.visibility = ApplicationWindow.Maximized;
         }
         
-        if (settings.enableSystray && settings.startHidden) {
-            window.hide();
+        if (!settings.enableSystray || !settings.startHidden) {
+            window.show()
         }
         
         firstTick = true;
