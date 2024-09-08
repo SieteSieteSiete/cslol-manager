@@ -28,6 +28,7 @@ Dialog {
     property alias themeAccentColor: themeAccentColorBox.currentIndex
     property alias suppressInstallConflicts: suppressInstallConflictsCheck.checked
     property alias enableSystray: enableSystrayCheck.checked
+    property alias startHidden: startHiddenCheck.checked
     property alias enableAutoRun: enableAutoRunCheck.checked
     property alias debugPatcher: debugPatcherCheck.checked
 
@@ -136,6 +137,13 @@ Dialog {
                     id: enableSystrayCheck
                     text: qsTr("Enable systray icon")
                     checked: false
+                    Layout.fillWidth: true
+                }
+                Switch {
+                    id: startHiddenCheck
+                    text: qsTr("Start application hidden")
+                    checked: false
+                    enabled: enableSystrayCheck.checked
                     Layout.fillWidth: true
                 }
                 Switch {

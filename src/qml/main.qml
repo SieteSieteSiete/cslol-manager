@@ -9,7 +9,7 @@ import QtQuick.Controls.Material 2.15
 
 ApplicationWindow {
     id: window
-    visible: true
+    visible: !settings.enableSystray || !settings.startHidden
     width: 640
     height: 640
     minimumHeight: 640
@@ -27,6 +27,7 @@ ApplicationWindow {
         property alias enableUpdates: cslolDialogSettings.enableUpdates
         property alias enableAutoRun: cslolDialogSettings.enableAutoRun
         property alias enableSystray: cslolDialogSettings.enableSystray
+        property alias startHidden: cslolDialogSettings.startHidden
         property alias themeDarkMode: cslolDialogSettings.themeDarkMode
         property alias themePrimaryColor: cslolDialogSettings.themePrimaryColor
         property alias themeAccentColor: cslolDialogSettings.themeAccentColor
