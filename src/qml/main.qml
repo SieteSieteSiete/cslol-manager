@@ -9,7 +9,7 @@ import QtQuick.Controls.Material 2.15
 
 ApplicationWindow {
     id: window
-    visible: !settings.enableSystray || !settings.startHidden
+    visible: true
     width: 640
     height: 640
     minimumHeight: 640
@@ -400,10 +400,13 @@ ApplicationWindow {
 
     Component.onCompleted: {
         if (settings.windowMaximised) {
-            if (window.visibility !== ApplicationWindow.Maximized) {
-                window.visibility = ApplicationWindow.Maximized;
-            }
+            window.visibility = ApplicationWindow.Maximized;
         }
+        
+        if (settings.enableSystray && settings.startHidden) {
+            window.hide();
+        }
+        
         firstTick = true;
         cslolTools.init()
         cslolDialogUpdate.checkForUpdates()
