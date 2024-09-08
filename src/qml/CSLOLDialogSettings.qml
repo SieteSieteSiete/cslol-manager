@@ -146,10 +146,6 @@ Dialog {
                             startMinimizedCheck.visible = true;
                             startMinimizedCheck.enabled = true;
                             createSystemTrayIcon();
-                            // Update the patcher state immediately after creation
-                            if (systemTrayIcon) {
-                                systemTrayIcon.updatePatcherRunning(cslolTools.state === CSLOLTools.StateRunning);
-                            }
                         } else {
                             startMinimizedCheck.visible = false;
                             startMinimizedCheck.enabled = false;
